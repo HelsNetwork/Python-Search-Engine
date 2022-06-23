@@ -10,8 +10,8 @@ db = client.db.results
 
 
 results = []
-page = 20500
-while page != 21000:
+page = 1
+while page != 39490:
                 start_url = requests.get("https://stackoverflow.com/questions/tagged/python?tab=newest&page=%7Bpage%7D&pagesize=50%22")
                 content = BeautifulSoup(start_url.text, 'lxml')
 
