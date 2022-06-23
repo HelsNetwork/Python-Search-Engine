@@ -1,0 +1,83 @@
+{
+  background-color: whitesmoke;
+}
+
+
+.font{
+    text-align: center;
+    padding: 20px;
+}
+form{
+  width: 700px;
+  height: 44px;
+  top: 45%;
+  left: 30%;
+  margin: -25px;
+  display: flex;
+  border-radius: 30px;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  border: 1px solid lightpink;
+  background-color: whitesmoke;
+}
+
+input{
+  all: unset;
+  font: 16px system-ui;
+  color: black;
+  height: 100%;
+  width: 100%;  
+}
+
+::placeholder{
+  color: black;
+  opacity: 0.7;
+}
+
+button{
+  all: unset;
+  cursor: pointer;
+  width: 30px;
+  height: 40px;
+  position: absolute;
+}
+
+svg {
+  color: lightpink;
+  fill: currentColor;
+  width: 25px;
+  height: 24px;
+  padding: 10px;
+  background-color: transparent;
+}
+
+
+
+.pyshearch{
+  font-size: 30px;    
+}
+
+
+.nav-item{
+  text-decoration: none;
+  padding: 14px 16px;
+  color: lightpink;
+}
+
+.nav-item:hover{
+  background-color: lightpink;
+  color: whitesmoke;
+}
+  
+
+
+.about{
+  float: right;
+  font-size: 23px;
+}
+
+.active{
+  background-color: whitesmoke;
+  color: lightpink;
+}
