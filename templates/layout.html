@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="initial-scale=1, width=device-width, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <title>Home</title>
+    </head>
+
+    <body>
+        <div class="barstyle">
+            <a class="nav-item pyshearch" href="http://127.0.0.1:5000/">Python Search</a> 
+            <a class="nav-item about active"  href="http://127.0.0.1:5000/about">About</a>   
+        </div>
+
+        {% block body%}{% endblock %}
+    </body>
