@@ -3,13 +3,13 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import pymongo 
 
 
-client = pymongo.MongoClient('mongodb://rina:up5O6LEMOlJlbedD@ac-pvajawv-shard-00-00.simkoz8.mongodb.net:27017,ac-pvajawv-shard-00-01.simkoz8.mongodb.net:27017,ac-pvajawv-shard-00-02.simkoz8.mongodb.net:27017/?ssl=true&replicaSet=atlas-83ia8w-shard-0&authSource=admin&retryWrites=true&w=majority', serverSelectionTimeoutMS = 5000)
+client = pymongo.MongoClient('mongodb://127.0.0', serverSelectionTimeoutMS = 5000)
 db = client.database
 
 
 
 app = Flask(name)
-app.config['SECRET_KEY']='\xde\xcd\x0b\x85\xd7\x11O1)\x16\xd5\x1b\xd1y\x80\x9f\xa7\xd1w9\xe5\x95\xd6\xba'
+app.config['SECRET_KEY']='0000'
 
 
 @app.route('/')
