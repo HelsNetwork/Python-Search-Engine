@@ -4,7 +4,7 @@ import pymongo
 
 
 
-client = pymongo.MongoClient('mongodb://rina:up5O6LEMOlJlbedD@ac-pvajawv-shard-00-00.simkoz8.mongodb.net:27017,ac-pvajawv-shard-00-01.simkoz8.mongodb.net:27017,ac-pvajawv-shard-00-02.simkoz8.mongodb.net:27017/?ssl=true&replicaSet=atlas-83ia8w-shard-0&authSource=admin&retryWrites=true&w=majority', serverSelectionTimeoutMS = 5000)
+client = pymongo.MongoClient('mongodb://127.0.0', serverSelectionTimeoutMS = 5000)
 db = client.database
 
 results = []
