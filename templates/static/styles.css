@@ -1,4 +1,4 @@
-{
+*{
   background-color: whitesmoke;
 }
 
@@ -27,7 +27,7 @@ input{
   font: 16px system-ui;
   color: black;
   height: 100%;
-  width: 100%;  
+  width: 100%;
 }
 
 ::placeholder{
@@ -52,32 +52,54 @@ svg {
   background-color: transparent;
 }
 
-
-
-.pyshearch{
-  font-size: 30px;    
+.pyonsearchengine {
+  font-size: 40px;
 }
 
-
+.barstyle {
+  overflow: hidden;
+  background-color: inherit;
+  min-height: 70px;
+  position: sticky;
+  top: 0;
+}
 .nav-item{
   text-decoration: none;
   padding: 14px 16px;
-  color: lightpink;
+  color: lightpink;;
 }
 
 .nav-item:hover{
   background-color: lightpink;
   color: whitesmoke;
+  width: 50px;
+  height: 28px;
 }
-  
+
 
 
 .about{
-  float: right;
-  font-size: 23px;
+  border: 2px solid lightpink;
+  color: lightpink;
+  background-color: whitesmoke;
+  font-size: 20px;
+  position: absolute;
+  right: 16px;
+
+
 }
 
-.active{
-  background-color: whitesmoke;
-  color: lightpink;
+
+.formresult {
+  position: sticky;
+  top: 35px;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  display: flex;
+  text-align: center;
+}
+
+.output {
+  text-decoration: none;
+  color: black;
 }
