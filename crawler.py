@@ -3,16 +3,13 @@ import requests
 import pymongo
 
 
-hearder = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36'}
 
-client = pymongo.MongoClient('mongodb://127.0.0.1', serverSelectionTimeoutMS = 5000)
-db = client.db.results
-
+client = pymongo.MongoClient('mongodb://rina:up5O6LEMOlJlbedD@ac-pvajawv-shard-00-00.simkoz8.mongodb.net:27017,ac-pvajawv-shard-00-01.simkoz8.mongodb.net:27017,ac-pvajawv-shard-00-02.simkoz8.mongodb.net:27017/?ssl=true&replicaSet=atlas-83ia8w-shard-0&authSource=admin&retryWrites=true&w=majority', serverSelectionTimeoutMS = 5000)
+db = client.database
 
 results = []
-page = 1
-while page != 39490:
-                start_url = requests.get("https://stackoverflow.com/questions/tagged/python?tab=newest&page=%7Bpage%7D&pagesize=50%22")
+for page in range(1,39490):
+                start_url = requests.get(f"https://stackoverflow.com/questions/tagged/python?tab=newest&page=%7Bpage%7D&pagesize=15%22)
                 content = BeautifulSoup(start_url.text, 'lxml')
 
                 questions = content.find_all('div', {'class':'s-post-summary js-post-summary' })
@@ -22,24 +19,19 @@ while page != 39490:
                             links = 'https://stackoverflow.com/' + item.find('a', {'class': 's-link'})['href']
                             description = item.find("div", {"class": "s-post-summary--content-excerpt"}).text.strip().replace('\n','')
 
-                            results.append({'title': title, 'links': links, 'description': description})
 
-                            context = {
-                                'results':results
-                            }
+                            context = {'title': title, 'links':links, 'description': description}
+
+                            results.append(context)
 
                             print(f'page scraped: {page}')
-
-                page = page + 1
 
                 print(len(results))
 
 
-db.insert_one(context)
+db.data.insert_many(results)
 
+db.data.create_index([
+    ('title', pymongo.TEXT)
 
-db.create_index([
-    ('title', pymongo.TEXT),
-    ('links', pymongo.TEXT),
-    ('description', pymongo.TEXT)
-], name= 'results', default_language='english')
+])
