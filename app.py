@@ -1,14 +1,15 @@
 from forms import SearchForm
 from flask import Flask, render_template, request, redirect, url_for, flash
-import pymongo
+import pymongo 
 
 
-client = pymongo.MongoClient('mongodb://127.0.0.1', serverSelectionTimeoutMS = 5000)
-db = client.db.results
+client = pymongo.MongoClient('mongodb://rina:up5O6LEMOlJlbedD@ac-pvajawv-shard-00-00.simkoz8.mongodb.net:27017,ac-pvajawv-shard-00-01.simkoz8.mongodb.net:27017,ac-pvajawv-shard-00-02.simkoz8.mongodb.net:27017/?ssl=true&replicaSet=atlas-83ia8w-shard-0&authSource=admin&retryWrites=true&w=majority', serverSelectionTimeoutMS = 5000)
+db = client.database
 
 
-app = Flask(__name__)
-app.config['SECRET_KEY']='THE SECRET KEY'
+
+app = Flask(name)
+app.config['SECRET_KEY']='\xde\xcd\x0b\x85\xd7\x11O1)\x16\xd5\x1b\xd1y\x80\x9f\xa7\xd1w9\xe5\x95\xd6\xba'
 
 
 @app.route('/')
@@ -31,11 +32,10 @@ def results():
     form = SearchForm()
     if form.validate_on_submit():
         searched = request.form['searched']
-        questions = list(db.find({"$text": {"$search": searched}}))      
-    
-    return render_template("results.html", form=form, questions=questions, searched=searched)
+        output =(db.data.find({'$text': {'$search': searched}}))
+
+    return render_template("results.html", form=form,searched=searched, output=output)
 
 
-
-if __name__ == '__main__':
-    app.run(debug= True)
+if name == 'main':
+   app.run(debug= True)
