@@ -1,2 +1,4 @@
 BeautifulSoup
 flask
+flask_wtf
+wtforms
