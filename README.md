@@ -1,6 +1,6 @@
 # Python-Search-Engine
 
-This my project for the [Final Project of CS50](https://cs50.harvard.edu/x/2022/).
+This is my project for the [Final Project of CS50](https://cs50.harvard.edu/x/2022/).
 
 
 
